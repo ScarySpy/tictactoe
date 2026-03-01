@@ -1,24 +1,24 @@
 # TICTACTOE TERM
-*This project was developed as my final requirement for Harvard's CS50P (Introduction to Programming with Python).*
+*The initial version of this project was developed as my final requirement for Harvard's CS50P (Introduction to Programming with Python).*
 
 #### Description:
 TicTacToe Term is a modern CLI implementation of the classic Tic-Tac-Toe game. While simple in spirit, the project aims to be highly customizable and versatile, demonstrating several advanced concepts including Object-Oriented Programming (OOP), recursive algorithms, CLI argument parsing, and the use of external libraries.
 
 # Usage
 ## Gameplay
-Running the script with `python project.py` and no flags will clear the screen and output the following:
+Running the script with `python main.py` and no flags will clear the screen and output the following:
 
 ```text
 Tic-Tac-Toe
 v1.0.0
-                                                ┌─────┬─────┬─────┐
-                                                │  1  │  2  │  3  │
-                                                ├─────┼─────┼─────┤
-                                                │  4  │  5  │  6  │
-                                                ├─────┼─────┼─────┤
-                                                │  7  │  8  │  9  │
-                                                └─────┴─────┴─────┘
-                                                Notation:
+┌─────┬─────┬─────┐
+│  1  │  2  │  3  │
+├─────┼─────┼─────┤
+│  4  │  5  │  6  │
+├─────┼─────┼─────┤
+│  7  │  8  │  9  │
+└─────┴─────┴─────┘
+Notation:
 
 [?] x, select a marker.
 ~
@@ -36,7 +36,7 @@ Each move is recorded in the notation line, where each digit represents a specif
 At the end of the game, the final notation is appended to a `games.txt` file.
 
 > [!NOTE]
-> Notations can be a maximum of 9 digits long (one per grid position) and follow an alternating move pattern: `XOXOXOXOX` or `OXOXOXOXO` if reversed. 
+> Notations can be a maximum of 9 digits long (one per grid position) and follow an alternating move pattern: `XOXOXOXOX` or `OXOXOXOXO` if reversed.
 
 > [!TIP]
 > Due to the nature of the game, if a match has a winner, the last move will always belong to the winner. Therefore, the preceding move will always be from the loser, following the alternating pattern.
@@ -45,7 +45,7 @@ At the end of the game, the final notation is appended to a `games.txt` file.
 > Notations from unfinished games will not be saved to `games.txt`.
 
 ## Customization
-The application is designed to be heavily customizable via command-line arguments and environment variables. Running `python project.py --help` (or using the `-h` flag) provides useful usage information, including:
+The application is designed to be heavily customizable via command-line arguments and environment variables. Running `python main.py --help` (or using the `-h` flag) provides useful usage information, including:
 
 ```
 usage: tic-tac-toe [-h] [--version]
@@ -93,7 +93,7 @@ The `reversed` flag and its corresponding environment variable determine who mov
 The `infinite-games` flag and its corresponding environment variable determine if the script exits after a match finishes. Similar to the previous option, simply including the `--infinite-games` flag will activate it. For the environment variable `INFINITE_GAMES`, it must be set to the exact string `"true"` (case-insensitive). If activated, the board resets after each match and automatically starts a new one.
 
 ### Replay
-The `replay` and `replay-delay` flags have no corresponding environment variables. The `replay` flag can be used with any notation to replay the game. `replay-delay` determines the delay between each move in seconds, default is `1`. 
+The `replay` and `replay-delay` flags have no corresponding environment variables. The `replay` flag can be used with any notation to replay the game. `replay-delay` determines the delay between each move in seconds, default is `1`.
 
 ---
 
@@ -111,21 +111,4 @@ The `replay` and `replay-delay` flags have no corresponding environment variable
 
 > [!TIP]
 > Any [Rich style](https://rich.readthedocs.io/en/latest/style.html) (e.g., `"bold underline green"`) can be passed to the color variables.
-
----
-
-# Design
-This project is structured according to the specifications at [https://cs50.harvard.edu/python/project/](https://cs50.harvard.edu/python/project/), consisting of four files:
-- `project.py`: The main program file.
-- `test_project.py`: A set of tests for the main project (using `pytest`).
-- `requirements.txt`: Lists the external library used ([Rich](https://rich.readthedocs.io/en/latest/index.html)).
-- `README.md`: This file!
-
-The entirety of the main program is contained within `project.py`, which houses the `Grid` class and the `main()` function. The Rich library is utilized throughout for aesthetics.
-
-The `Grid` class handles state management via a 1D array, input validation, win logic through hardcoded combinations, and rendering.
-
-Two AI opponents are implemented: `simple` (`bot1`), which picks cells randomly, and `minimax` (`bot2`), which employs a recursive search algorithm to simulate every possible future move. By assigning scores to every outcome, `bot2` determines and plays the mathematically optimal move.
-
-The main() function contains the primary game loop. It handles turn-swapping between X (Player 1) and O (Player 2), processes user input, bot moves, or automated game replays, logs each action, and depending on the `--infinite-games` flag, resets the board to start a new match.
 
