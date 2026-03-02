@@ -1,5 +1,6 @@
 # TICTACTOE TERM
-*The initial version of this project was developed as my final requirement for Harvard's CS50P (Introduction to Programming with Python).*
+> [!NOTE]
+> The initial version of this project was developed as my final requirement for Harvard's CS50P (Introduction to Programming with Python).
 
 #### Description:
 TicTacToe Term is a modern CLI implementation of the classic Tic-Tac-Toe game. While simple in spirit, the project aims to be highly customizable and versatile, demonstrating several advanced concepts including Object-Oriented Programming (OOP), recursive algorithms, CLI argument parsing, and the use of external libraries.
